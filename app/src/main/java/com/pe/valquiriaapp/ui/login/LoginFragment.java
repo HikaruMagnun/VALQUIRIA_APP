@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.pe.valquiriaapp.R;
 import com.pe.valquiriaapp.model.Cliente;
 
+import java.util.Objects;
+
 public class LoginFragment extends Fragment {
 
     private LoginViewModel loginViewModel;
@@ -61,7 +63,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NavDirections navDirections = LoginFragmentDirections.actionLoginToRegistro();
-                Navigation.findNavController(getView()).navigate(navDirections);
+                Navigation.findNavController(requireView()).navigate(navDirections);
             }
         });
         //OBSERVER
@@ -70,8 +72,8 @@ public class LoginFragment extends Fragment {
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean){
                     Toast.makeText(getContext(), "USUARIO CONFIMADO", Toast.LENGTH_SHORT).show();
-                    NavDirections navDirections = LoginFragmentDirections.actionLoginToMobileNavigation();
-                    Navigation.findNavController(getView()).navigate(navDirections);
+                    NavDirections navDirections = LoginFragmentDirections.actionLoginToActivityApp();
+                    Navigation.findNavController(requireView()).navigate(navDirections);
                 }else{
                     Toast.makeText(getContext(), "USUARIO NO ENCONTRADO, POR FAVOR REGISTRESE", Toast.LENGTH_SHORT).show();
                 }

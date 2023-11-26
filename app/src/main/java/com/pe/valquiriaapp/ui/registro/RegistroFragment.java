@@ -77,7 +77,7 @@ public class RegistroFragment extends Fragment {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
-                    NavDirections navDirections = RegistroFragmentDirections.actionRegistroToMobileNavigation();
+                    NavDirections navDirections = RegistroFragmentDirections.actionRegistroToActivityApp();
                     Navigation.findNavController(getView()).navigate(navDirections);
                 }else {
                     Toast.makeText(getContext(), "CORREO O DNI YA REGISTRADO", Toast.LENGTH_SHORT).show();

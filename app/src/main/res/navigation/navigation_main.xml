@@ -14,8 +14,8 @@
             android:id="@+id/action_login_to_registro"
             app:destination="@id/registro" />
         <action
-            android:id="@+id/action_login_to_mobile_navigation"
-            app:destination="@id/mobile_navigation"
+            android:id="@+id/action_login_to_activityApp"
+            app:destination="@id/activityApp"
             app:popUpTo="@id/login"
             app:popUpToInclusive="true" />
     </fragment>
@@ -28,10 +28,13 @@
             android:id="@+id/action_registro_to_login"
             app:destination="@id/login" />
         <action
-            android:id="@+id/action_registro_to_mobile_navigation"
-            app:destination="@id/mobile_navigation"
+            android:id="@+id/action_registro_to_activityApp"
+            app:destination="@id/activityApp"
             app:popUpTo="@id/registro"
             app:popUpToInclusive="true" />
     </fragment>
-    <include app:graph="@navigation/mobile_navigation" />
+    <activity
+        android:id="@+id/activityApp"
+        android:name="com.pe.valquiriaapp.ActivityApp"
+        android:label="ActivityApp" />
 </navigation>
