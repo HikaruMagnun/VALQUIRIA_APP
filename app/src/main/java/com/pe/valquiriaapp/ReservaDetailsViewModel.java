@@ -2,6 +2,6 @@ package com.pe.valquiriaapp;
 
 import androidx.lifecycle.ViewModel;
 
-public class SelectHabitacionViewModel extends ViewModel {
+public class ReservaDetailsViewModel extends ViewModel {
     // TODO: Implement the ViewModel
 }

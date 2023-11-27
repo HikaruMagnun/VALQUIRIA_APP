@@ -12,24 +12,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class SelectHabitacionFragment extends Fragment {
+public class ReservaDetailsFragment extends Fragment {
 
-    private SelectHabitacionViewModel mViewModel;
+    private ReservaDetailsViewModel mViewModel;
 
-    public static SelectHabitacionFragment newInstance() {
-        return new SelectHabitacionFragment();
+    public static ReservaDetailsFragment newInstance() {
+        return new ReservaDetailsFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_select_habitacion, container, false);
+        return inflater.inflate(R.layout.fragment_reserva_details, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(SelectHabitacionViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ReservaDetailsViewModel.class);
         // TODO: Use the ViewModel
     }
 

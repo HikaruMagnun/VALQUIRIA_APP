@@ -16,7 +16,7 @@ public class ClienteRemoteRepository {
     }
 
     public boolean autenticarCliente(Cliente cliente) {
-        String sql = "select dni from public.clientes where correo = ? and contrasena = ?; ";
+        String sql = "select nro_doc from public.clientes where correo = ? and contrasena = ?; ";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, cliente.getCorreo());
             preparedStatement.setString(2, cliente.getContrasena());
@@ -30,7 +30,7 @@ public class ClienteRemoteRepository {
     }
 
     public boolean insertarCliente(Cliente cliente) {
-            String sql = "INSERT INTO clientes (dni, nombre, apellido, contrasena, correo) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO clientes (nro_doc, nombre, apellido, contrasena, correo) VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setInt(1,cliente.getDni());
                 preparedStatement.setString(2, cliente.getNombre());

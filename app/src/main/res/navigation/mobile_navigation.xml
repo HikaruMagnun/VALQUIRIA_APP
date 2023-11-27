@@ -10,17 +10,53 @@
         android:id="@+id/navigation_home"
         android:name="com.pe.valquiriaapp.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_habitacion" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.pe.valquiriaapp.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_reserva_fecha"
+        android:name="com.pe.valquiriaapp.ui.reserva_fecha.ReservaFechaFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_reserva_fecha" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_reserva_habitacion"
+            app:destination="@id/navigation_reserva_habitacion" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.pe.valquiriaapp.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_reserva_habitacion"
+        android:name="com.pe.valquiriaapp.ui.reserva_habitacion.ReservaHabitacionFragment"
+        tools:layout="@layout/fragment_reserva_habitacion"
+        >
+        <argument
+            android:name="starDate"
+            app:argType="long" />
+        <argument
+            android:name="endDate"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_navigation_reserva_habitacion_to_reservaDetailsFragment"
+            app:destination="@id/navigation_reserva_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_reserva_details"
+        android:name="com.pe.valquiriaapp.ReservaDetailsFragment"
+        android:label="fragment_reserva_details"
+        tools:layout="@layout/fragment_reserva_details" >
+        <argument
+            android:name="total_dias"
+            app:argType="integer" />
+        <argument
+            android:name="inicio_date"
+            app:argType="string" />
+        <argument
+            android:name="fin_date"
+            app:argType="string" />
+        <argument android:name="cod_habitacion"
+            app:argType="integer" />
+    </fragment>
 </navigation>
