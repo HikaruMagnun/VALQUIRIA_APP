@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/navigation_reserva_fecha"
         android:name="com.pe.valquiriaapp.ui.reserva_fecha.ReservaFechaFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_reserva"
         tools:layout="@layout/fragment_reserva_fecha" >
         <action
             android:id="@+id/action_navigation_dashboard_to_navigation_reserva_habitacion"
@@ -25,7 +25,7 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.pe.valquiriaapp.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_servicios"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_reserva_habitacion"
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_reserva_details"
-        android:name="com.pe.valquiriaapp.ReservaDetailsFragment"
+        android:name="com.pe.valquiriaapp.ui.reserva_details.ReservaDetailsFragment"
         android:label="fragment_reserva_details"
         tools:layout="@layout/fragment_reserva_details" >
         <argument
@@ -58,5 +58,16 @@
             app:argType="string" />
         <argument android:name="cod_habitacion"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_navigation_reserva_details_to_habitacionFragment"
+            app:destination="@id/habitacionFragment" />
+        <action
+            android:id="@+id/action_navigation_reserva_details_to_navigation_reserva_fecha"
+            app:destination="@id/navigation_reserva_fecha" />
     </fragment>
+    <fragment
+        android:id="@+id/habitacionFragment"
+        android:name="com.pe.valquiriaapp.ui.habitacion.HabitacionFragment"
+        android:label="fragment_habitacion"
+        tools:layout="@layout/fragment_habitacion" />
 </navigation>

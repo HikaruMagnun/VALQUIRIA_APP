@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">VALQUIRIA APP</string>
     <string name="title_activity_app">ActivityApp</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">MENU</string>
+    <string name="title_reserva">RESERVA</string>
+    <string name="title_servicios">SERVICIOS</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

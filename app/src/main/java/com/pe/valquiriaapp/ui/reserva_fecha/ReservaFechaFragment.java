@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
@@ -30,8 +29,6 @@ public class ReservaFechaFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         //DECLARACIONES
         View view = inflater.inflate(R.layout.fragment_reserva_fecha, container, false);
-        ReservaFechaViewModel reservaFechaViewModel =
-                new ViewModelProvider(this).get(ReservaFechaViewModel.class);
         ImageView imageViewHotelGif = view.findViewById(R.id.reserva_fecha_img_gif);
         Button buttonRangeFecha = view.findViewById(R.id.reserva_fecha_button);
         MaterialDatePicker<Pair<Long, Long>> picker =configurarCalender();

@@ -60,6 +60,7 @@ public class HabitacionAdapter extends RecyclerView.Adapter<HabitacionAdapter.Vi
                 .into(holder.imageViewHabitacionIamge);
         holder.textViewHabitacionTipo.setText(habitacion.getTipo());
         holder.textViewHabitacionDescription.setText(habitacion.getDescripcion());
+        holder.textViewHabitacionPrecio.setText(String.valueOf(habitacion.getPrecioDia()));
 
         holder.imageButtonHabitacionButton.setOnClickListener(new View.OnClickListener() {
             @Override

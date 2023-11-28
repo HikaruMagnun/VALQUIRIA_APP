@@ -40,7 +40,28 @@ public class HabitacionRemoteRepository {
         }
         return listaProducto;
 
+    }
 
+    public Habitacion habitacionPorCodigo(int codigo){
+        Habitacion habitacion = new Habitacion();
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "select * from habitaciones where codigo_habitacion = ?;");
+            statement.setInt(1,codigo);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                habitacion.setCodigoHabitacion(resultSet.getInt("codigo_habitacion"));
+                habitacion.setPiso(resultSet.getInt("piso"));
+                habitacion.setPrecioDia(resultSet.getFloat("precio_dia"));
+                habitacion.setTipo(resultSet.getString("tipo"));
+                Array imagenes = resultSet.getArray("imagenes");
+                habitacion.setImagenes((String[]) imagenes.getArray());
+                habitacion.setDescripcion(resultSet.getString("description"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return habitacion;
 
     }
 }
