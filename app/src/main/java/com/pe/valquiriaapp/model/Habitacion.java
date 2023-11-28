@@ -1,21 +1,25 @@
 package com.pe.valquiriaapp.model;
 
+
 public class Habitacion {
     private int codigoHabitacion;
     private int piso;
     private float precioDia;
     private String tipo;
-    private String[] imagenes;
+    private String[] imagenes ;
+
+    private String descripcion;
 
     public Habitacion() {
     }
 
-    public Habitacion(int codigoHabitacion, int piso, float precioDia, String tipo, String[] imagenes) {
+    public Habitacion(int codigoHabitacion, int piso, float precioDia, String tipo, String[] imagenes, String descripcion) {
         this.codigoHabitacion = codigoHabitacion;
         this.piso = piso;
         this.precioDia = precioDia;
         this.tipo = tipo;
         this.imagenes = imagenes;
+        this.descripcion = descripcion;
     }
 
     public int getCodigoHabitacion() {
@@ -56,5 +60,13 @@ public class Habitacion {
 
     public void setImagenes(String[] imagenes) {
         this.imagenes = imagenes;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

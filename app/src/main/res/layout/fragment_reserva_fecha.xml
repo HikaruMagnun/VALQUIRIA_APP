@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.reserva_fecha.ReservaFechaFragment">
 
     <TextView
         android:id="@+id/text_dashboard"
@@ -15,7 +15,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-black"
-        android:text="RESERVA SU VISITA CON NOSOTROS"
+        android:text="@string/reserva_fecha_title"
         android:textAlignment="center"
         android:textColor="@color/blue_oscuro"
         android:textSize="34sp"
@@ -26,14 +26,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Sellecione la fecha en la cual se alojara con nosotros"
+        android:text="A UN PASO MENOS PARA HOSPEDARZE"
         android:textAlignment="center"
         android:textColor="@color/blue_oscuro"
         android:textSize="24sp" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        style="@style/Calendario"
+    <ImageView
+        android:id="@+id/reserva_fecha_img_gif"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginLeft="20dp"
@@ -41,12 +40,12 @@
         android:layout_marginRight="20dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/reserva_fecha_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:text="CONFIRME FECHA"
+        android:text="SELECCIONAR RANGO DE FECHAS"
         android:textSize="24sp" />
 </LinearLayout>

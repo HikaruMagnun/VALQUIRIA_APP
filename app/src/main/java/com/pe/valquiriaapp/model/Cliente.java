@@ -4,17 +4,18 @@ public class Cliente {
     private int dni;
     private String nombre;
     private String apellido;
-    private int celular;
+    private String correo;
+    private String contrasena;
 
     public Cliente() {
-
     }
 
-    public Cliente(int dni, String nombre, String apellido, int celular) {
+    public Cliente(int dni, String nombre, String apellido, String correo, String contrasena) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.celular = celular;
+        this.correo = correo;
+        this.contrasena = contrasena;
     }
 
     public int getDni() {
@@ -41,11 +42,19 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public int getCelular() {
-        return celular;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setCelular(int celular) {
-        this.celular = celular;
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }
