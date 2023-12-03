@@ -52,7 +52,6 @@ public class ReservaFechaFragment extends Fragment {
         MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
         builder.setTitleText("Ingrese le rango de fechas");
         builder.setCalendarConstraints(constraintsBuilder.build());
-        builder.setSelection(new Pair<>(MaterialDatePicker.todayInUtcMilliseconds(),null));
         MaterialDatePicker<Pair<Long, Long>> picker = builder.build();
         picker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>() {
             @Override

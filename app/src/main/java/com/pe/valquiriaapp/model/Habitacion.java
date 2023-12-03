@@ -8,6 +8,7 @@ public class Habitacion {
     private String tipo;
     private String[] imagenes ;
 
+
     private String descripcion;
 
     public Habitacion() {

@@ -29,8 +29,6 @@ import java.util.List;
 public class HabitacionAdapter extends RecyclerView.Adapter<HabitacionAdapter.ViewHolder> {
 
     private final List<Habitacion> listaHabitacion;
-    private Bundle arguments;
-
     String inicioDate;
     String finDate;
     int totalDays;

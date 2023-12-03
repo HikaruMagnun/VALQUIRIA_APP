@@ -11,10 +11,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,12 +28,15 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.pe.valquiriaapp.R;
+import com.pe.valquiriaapp.adapters.HabitacionDetailsAdapter;
 import com.pe.valquiriaapp.model.Habitacion;
+
+import java.util.Arrays;
 
 public class ReservaDetailsFragment extends Fragment {
 
     private ReservaDetailsViewModel mViewModel;
-    private ImageView reserva_details_img;
+    private RecyclerView reservaDetailsRecyclerView;
     private TextView reservaDetailsTipo;
     private TextView reservaDetailsDescription;
     private TextView reservaDetailsPiso;
@@ -58,7 +63,7 @@ public class ReservaDetailsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         //declaraciones
         View view = inflater.inflate(R.layout.fragment_reserva_details, container, false);
-        reserva_details_img = view.findViewById(R.id.reserva_details_img);
+        reservaDetailsRecyclerView = view.findViewById(R.id.reserva_details_recycler_img);
         reservaDetailsTipo = view.findViewById(R.id.reserva_details_tipo);
         reservaDetailsDescription = view.findViewById(R.id.reserva_details_description);
         reservaDetailsPiso = view.findViewById(R.id.reserva_details_piso);
@@ -114,11 +119,8 @@ public class ReservaDetailsFragment extends Fragment {
         mViewModel.getHabitacionMutableLiveData().observe(getViewLifecycleOwner(), new Observer<Habitacion>() {
             @Override
             public void onChanged(Habitacion habitacion) {
-                Glide.with(view)
-                        .load(habitacion.getImagenes()[0])
-                        .placeholder(R.drawable.loading_gift)
-                        .error(R.drawable.item_habitacion_noload)
-                        .into(reserva_details_img);
+                HabitacionDetailsAdapter habitacionDetailsAdapter = new HabitacionDetailsAdapter(Arrays.asList(habitacion.getImagenes()));
+                reservaDetailsRecyclerView.setAdapter(habitacionDetailsAdapter);
                 reservaDetailsTipo.setText(habitacion.getTipo());
                 reservaDetailsDescription.setText(habitacion.getDescripcion());
                 reservaDetailsPiso.setText(String.valueOf(habitacion.getPiso()));
