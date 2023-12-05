@@ -7,15 +7,20 @@ public class Cliente {
     private String correo;
     private String contrasena;
 
+    private int numeroTelefonico;
+    private String dirreccion;
+
     public Cliente() {
     }
 
-    public Cliente(int dni, String nombre, String apellido, String correo, String contrasena) {
+    public Cliente(int dni, String nombre, String apellido, String correo, String contrasena,int numeroTelefonico, String dirreccion) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.contrasena = contrasena;
+        this.numeroTelefonico = numeroTelefonico;
+        this.dirreccion = dirreccion;
     }
 
     public int getDni() {
@@ -56,5 +61,21 @@ public class Cliente {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public int getNumeroTelefonico() {
+        return numeroTelefonico;
+    }
+
+    public void setNumeroTelefonico(int numeroTelefonico) {
+        this.numeroTelefonico = numeroTelefonico;
+    }
+
+    public String getDirreccion() {
+        return dirreccion;
+    }
+
+    public void setDirreccion(String dirreccion) {
+        this.dirreccion = dirreccion;
     }
 }

@@ -30,14 +30,15 @@ public class ClienteRemoteRepository {
     }
 
     public boolean insertarCliente(Cliente cliente) {
-            String sql = "INSERT INTO clientes (nro_doc, nombre, apellido, contrasena, correo) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO clientes (nro_doc, nombre, apellido, contrasena, correo,numero_telefono,direccion) VALUES (?, ?, ?, ?, ?,?,?)";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setInt(1,cliente.getDni());
                 preparedStatement.setString(2, cliente.getNombre());
                 preparedStatement.setString(3, cliente.getApellido());
                 preparedStatement.setString(4, cliente.getContrasena());
                 preparedStatement.setString(5, cliente.getCorreo());
-
+                preparedStatement.setInt(6,cliente.getNumeroTelefonico());
+                preparedStatement.setString(7,cliente.getDirreccion());
                 int filasAfectadas = preparedStatement.executeUpdate();
                 return filasAfectadas > 0;
             }

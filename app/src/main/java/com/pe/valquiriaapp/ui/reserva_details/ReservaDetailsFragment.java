@@ -16,27 +16,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.materialswitch.MaterialSwitch;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.pe.valquiriaapp.R;
 import com.pe.valquiriaapp.adapters.HabitacionDetailsAdapter;
+import com.pe.valquiriaapp.adapters.TipoMuebleAdapter;
 import com.pe.valquiriaapp.model.Habitacion;
+import com.pe.valquiriaapp.model.MueblesTipo;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class ReservaDetailsFragment extends Fragment {
 
     private ReservaDetailsViewModel mViewModel;
     private RecyclerView reservaDetailsRecyclerView;
+    private RecyclerView reservaDetailsTipoMuebles;
     private TextView reservaDetailsTipo;
     private TextView reservaDetailsDescription;
     private TextView reservaDetailsPiso;
@@ -45,13 +48,16 @@ public class ReservaDetailsFragment extends Fragment {
     private TextView reservaDetailsFecha2;
     private TextView reservaDetailsDias;
     private TextView reservaDetailsPrecioDia;
-    private EditText reservaDetailsComentario;
     private ProgressBar reservaDetailsLoading;
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private LinearLayout reservaDetailsLayout;
     private CardView reservaDetailsCardView;
     private TextView reservaDetailsPrecioTotal;
-    private Button reserva_details_confirmar;
+    private MaterialSwitch reservaDetailsMaterialSwitchPersonalizacionConfirm;
+    private Button reservaDetailsConfirmar;
+
+    private CircularProgressIndicator reservaDetailsTipoMueblesLoading;
+
     private int codHabitacion;
     private int totalDias;
     private String inicioDate;
@@ -64,6 +70,7 @@ public class ReservaDetailsFragment extends Fragment {
         //declaraciones
         View view = inflater.inflate(R.layout.fragment_reserva_details, container, false);
         reservaDetailsRecyclerView = view.findViewById(R.id.reserva_details_recycler_img);
+        reservaDetailsTipoMuebles = view.findViewById(R.id.reserva_details_tipo_muebles);
         reservaDetailsTipo = view.findViewById(R.id.reserva_details_tipo);
         reservaDetailsDescription = view.findViewById(R.id.reserva_details_description);
         reservaDetailsPiso = view.findViewById(R.id.reserva_details_piso);
@@ -72,27 +79,51 @@ public class ReservaDetailsFragment extends Fragment {
         reservaDetailsFecha2 = view.findViewById(R.id.reserva_details_fecha2);
         reservaDetailsDias = view.findViewById(R.id.reserva_details_dias);
         reservaDetailsPrecioDia = view.findViewById(R.id.reserva_details_precio_dia);
-        reservaDetailsComentario = view.findViewById(R.id.reserva_details_comentario);
         reservaDetailsLoading = view.findViewById(R.id.reserva_details_loading);
         reservaDetailsLayout = view.findViewById(R.id.reserva_details_layout);
         reservaDetailsCardView = view.findViewById(R.id.reserva_details_cardView);
         reservaDetailsPrecioTotal = view.findViewById(R.id.reserva_details_precio_total);
-        reserva_details_confirmar = view.findViewById(R.id.reserva_details_confirmar);
+        reservaDetailsConfirmar = view.findViewById(R.id.reserva_details_confirmar);
+        reservaDetailsTipoMueblesLoading = view.findViewById(R.id.reserva_details_tipo_muebles_loading);
+        reservaDetailsMaterialSwitchPersonalizacionConfirm =
+                view.findViewById(R.id.reserva_details_personalizacion_confirmacion);
         mViewModel = new ViewModelProvider(this).get(ReservaDetailsViewModel.class);
         //cpnfiguracion
         reservaDetailsLoading.setVisibility(View.VISIBLE);
         reservaDetailsLayout.setVisibility(View.GONE);
         reservaDetailsCardView.setVisibility(View.GONE);
-        reserva_details_confirmar.setOnClickListener(new View.OnClickListener() {
+        reservaDetailsTipoMueblesLoading.setVisibility(View.GONE);
+        reservaDetailsTipoMuebles.setVisibility(View.GONE);
+        reservaDetailsConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mViewModel.pasarDatosAlojamiento(
                     codHabitacion,
                     inicioDate,
                         finDate,
-                        String.valueOf(reservaDetailsComentario.getText())
+                        mViewModel.getComentarioAlojamiento().toString()
 
                 );
+
+            }
+        });
+
+        reservaDetailsMaterialSwitchPersonalizacionConfirm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    if(! mViewModel.getConfirmaCargaTipoMuebleCarga()){
+                        mViewModel.cargarTipoMubles();
+                        reservaDetailsMaterialSwitchPersonalizacionConfirm.setEnabled(false);
+                    }else {
+                        reservaDetailsTipoMueblesLoading.setVisibility(View.GONE);
+                        reservaDetailsTipoMuebles.setVisibility(View.VISIBLE);
+                    }
+
+                }else {
+                    reservaDetailsTipoMueblesLoading.setVisibility(View.GONE);
+                    reservaDetailsTipoMuebles.setVisibility(View.GONE);
+                }
             }
         });
         //recogo de valores
@@ -103,6 +134,17 @@ public class ReservaDetailsFragment extends Fragment {
         //paso de datos al view model
         mViewModel.pasarDatos(codHabitacion);
         //recogo de datos obsercer
+
+        mViewModel.getListMueblesTipoMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<MueblesTipo>>() {
+            @Override
+            public void onChanged(List<MueblesTipo> mueblesTipos) {
+                TipoMuebleAdapter tipoMuebleAdapter = new TipoMuebleAdapter(mueblesTipos,mViewModel);
+                reservaDetailsTipoMuebles.setAdapter(tipoMuebleAdapter);
+                reservaDetailsTipoMueblesLoading.setVisibility(View.GONE);
+                reservaDetailsTipoMuebles.setVisibility(View.VISIBLE);
+                reservaDetailsMaterialSwitchPersonalizacionConfirm.setEnabled(true);
+            }
+        });
         mViewModel.getBooleanMutableLiveData().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
@@ -129,11 +171,21 @@ public class ReservaDetailsFragment extends Fragment {
                 reservaDetailsFecha2.setText(finDate);
                 reservaDetailsDias.setText(String.valueOf(totalDias));
                 reservaDetailsPrecioDia.setText(Float.toString(habitacion.getPrecioDia()));
-                reservaDetailsPrecioTotal.setText(Float.toString(habitacion.getPrecioDia()*totalDias));
+                mViewModel.getFloatPrecioTotalMutableLiveData().
+                        postValue(habitacion.getPrecioDia()*totalDias);
+
                 reservaDetailsLoading.setVisibility(View.GONE);
                 reservaDetailsLayout.setVisibility(View.VISIBLE);
                 reservaDetailsCardView.setVisibility(View.VISIBLE);
 
+            }
+        });
+
+        mViewModel.getFloatPrecioTotalMutableLiveData().observe(getViewLifecycleOwner(), new Observer<Float>() {
+            @Override
+            public void onChanged(Float aFloat) {
+                reservaDetailsPrecioTotal.setText(Float.toString(
+                        aFloat));
             }
         });
 

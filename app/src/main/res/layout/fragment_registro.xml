@@ -19,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="15dp">
 
@@ -33,79 +33,116 @@
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/registro_nombre"
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/margin"
-                android:drawableLeft="@drawable/user_icon"
-                android:drawablePadding="8dp"
-                android:hint="Nombres"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:layout_height="383dp">
 
-            <EditText
-                android:id="@+id/registro_apellido"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/margin"
-                android:drawableLeft="@drawable/user_icon"
-                android:drawablePadding="8dp"
-                android:hint="Apellidos"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/registro_correo"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/margin"
-                android:drawableLeft="@drawable/arroba_icon"
-                android:drawablePadding="8dp"
-                android:hint="Correo"
-                android:inputType="textEmailAddress"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                    <EditText
+                        android:id="@+id/registro_nombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/margin"
+                        android:drawableLeft="@drawable/user_icon"
+                        android:drawablePadding="8dp"
+                        android:hint="Nombres"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
 
-            <EditText
-                android:id="@+id/registro_dni"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/margin"
-                android:drawableLeft="@drawable/dni_icon"
-                android:drawablePadding="8dp"
-                android:hint="DNI"
-                android:inputType="number"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                    <EditText
+                        android:id="@+id/registro_apellido"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/margin"
+                        android:drawableLeft="@drawable/user_icon"
+                        android:drawablePadding="8dp"
+                        android:hint="Apellidos"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
 
-            <EditText
-                android:id="@+id/registro_contrasena"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/margin"
-                android:drawableLeft="@drawable/user_pass"
-                android:drawablePadding="8dp"
-                android:hint="Contraseña"
-                android:inputType="textPassword"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                    <EditText
+                        android:id="@+id/registro_correo"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/margin"
+                        android:drawableLeft="@drawable/arroba_icon"
+                        android:drawablePadding="8dp"
+                        android:hint="Correo"
+                        android:inputType="textEmailAddress"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                    <EditText
+                        android:id="@+id/registro_dni"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/margin"
+                        android:drawableLeft="@drawable/dni_icon"
+                        android:drawablePadding="8dp"
+                        android:hint="DNI"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+                    <EditText
+                        android:id="@+id/registro_telefono"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/margin"
+                        android:drawableLeft="@drawable/dni_icon"
+                        android:drawablePadding="8dp"
+                        android:hint="Numero telefonico"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+                    <EditText
+                        android:id="@+id/registro_direccion"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/margin"
+                        android:drawableLeft="@drawable/dni_icon"
+                        android:drawablePadding="8dp"
+                        android:hint="direccion"
+                        android:inputType="text"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                    <EditText
+                        android:id="@+id/registro_contrasena"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/margin"
+                        android:drawableLeft="@drawable/user_pass"
+                        android:drawablePadding="8dp"
+                        android:hint="Contraseña"
+                        android:inputType="textPassword"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
 
             <Button
                 android:id="@+id/registro_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:backgroundTint="@color/green_oscuro"
                 android:text="Registrase"
                 android:textSize="18sp"

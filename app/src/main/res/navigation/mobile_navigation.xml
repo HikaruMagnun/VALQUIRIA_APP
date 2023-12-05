@@ -60,7 +60,9 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_navigation_reserva_details_to_habitacionFragment"
-            app:destination="@id/habitacionFragment" />
+            app:destination="@id/habitacionFragment"
+            app:popUpTo="@id/navigation_reserva_details"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_navigation_reserva_details_to_navigation_reserva_fecha"
             app:destination="@id/navigation_reserva_fecha" />
