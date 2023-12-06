@@ -48,4 +48,25 @@ public class ClienteRemoteRepository {
         }
     }
 
+    public Cliente clientePorCorreo(String correo) {
+        String sql = "select * from public.clientes where correo = ? ; ";
+        Cliente cliente = new Cliente();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, correo);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            cliente.setDni(resultSet.getInt("nro_doc"));
+            cliente.setNombre(resultSet.getString("nombre"));
+            cliente.setApellido(resultSet.getString("apellido"));
+            cliente.setCorreo(resultSet.getString("correo"));
+            cliente.setNumeroTelefonico(resultSet.getInt("numero_telefono"));
+            cliente.setDirreccion(resultSet.getString("dirrecion"));
+            System.out.println(cliente);
+            return cliente;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cliente;
+    }
 }

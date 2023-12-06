@@ -46,6 +46,7 @@ public class LoginFragment extends Fragment {
         buttonlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonlogin.setEnabled(false);
                 String correo = editTextCorreo.getText().toString();
                 String contrasena = editTextContrasena.getText().toString();
                 if (correo == null || correo.isEmpty() || contrasena == null || contrasena.isEmpty() ){
@@ -75,6 +76,7 @@ public class LoginFragment extends Fragment {
                     NavDirections navDirections = LoginFragmentDirections.actionLoginToActivityApp();
                     Navigation.findNavController(requireView()).navigate(navDirections);
                 }else{
+                    buttonlogin.setEnabled(true);
                     Toast.makeText(getContext(), "USUARIO NO ENCONTRADO, POR FAVOR REGISTRESE", Toast.LENGTH_SHORT).show();
                 }
             }

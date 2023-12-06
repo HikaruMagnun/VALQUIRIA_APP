@@ -63,7 +63,7 @@ public class ReservaDetailsFragment extends Fragment {
     private String inicioDate;
     private String finDate;
 
-
+    private Float precioTotalNoCustom;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -97,11 +97,18 @@ public class ReservaDetailsFragment extends Fragment {
         reservaDetailsConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                reservaDetailsConfirmar.setEnabled(false);
+                String comentario;
+                if(reservaDetailsMaterialSwitchPersonalizacionConfirm.isChecked()){
+                    comentario = mViewModel.getComentarioAlojamiento().toString();
+                }else {
+                    comentario = "SIN NADA AÑADIDO";
+                }
                 mViewModel.pasarDatosAlojamiento(
                     codHabitacion,
                     inicioDate,
                         finDate,
-                        mViewModel.getComentarioAlojamiento().toString()
+                      comentario
 
                 );
 
@@ -116,13 +123,20 @@ public class ReservaDetailsFragment extends Fragment {
                         mViewModel.cargarTipoMubles();
                         reservaDetailsMaterialSwitchPersonalizacionConfirm.setEnabled(false);
                     }else {
+                        reservaDetailsPrecioTotal.setText(
+                                Float.toString(
+                                        mViewModel.getFloatPrecioTotalMutableLiveData().getValue()
+                                )
+                        );
                         reservaDetailsTipoMueblesLoading.setVisibility(View.GONE);
                         reservaDetailsTipoMuebles.setVisibility(View.VISIBLE);
+
                     }
 
                 }else {
                     reservaDetailsTipoMueblesLoading.setVisibility(View.GONE);
                     reservaDetailsTipoMuebles.setVisibility(View.GONE);
+                    reservaDetailsPrecioTotal.setText(Float.toString(precioTotalNoCustom));
                 }
             }
         });
@@ -149,11 +163,11 @@ public class ReservaDetailsFragment extends Fragment {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
-                    NavDirections navDirections = ReservaDetailsFragmentDirections.actionNavigationReservaDetailsToHabitacionFragment();
+                    NavDirections navDirections = ReservaDetailsFragmentDirections.actionReservaDetailsToNavigationAlojamientoValidator();
                     Navigation.findNavController(view).navigate(navDirections);
                 }else{
                     Toast.makeText(getContext(), "RESERVA FALLIFA, POR FAVOR INTENTELO DENUEVO", Toast.LENGTH_LONG).show();
-                    NavDirections navDirections = ReservaDetailsFragmentDirections.actionNavigationReservaDetailsToNavigationReservaFecha();
+                    NavDirections navDirections = ReservaDetailsFragmentDirections.actionReservaDetailsToNavigationAlojamientoValidator();
                     Navigation.findNavController(view).navigate(navDirections);
                 }
             }
@@ -173,7 +187,7 @@ public class ReservaDetailsFragment extends Fragment {
                 reservaDetailsPrecioDia.setText(Float.toString(habitacion.getPrecioDia()));
                 mViewModel.getFloatPrecioTotalMutableLiveData().
                         postValue(habitacion.getPrecioDia()*totalDias);
-
+                precioTotalNoCustom = habitacion.getPrecioDia()*totalDias;
                 reservaDetailsLoading.setVisibility(View.GONE);
                 reservaDetailsLayout.setVisibility(View.VISIBLE);
                 reservaDetailsCardView.setVisibility(View.VISIBLE);

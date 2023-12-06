@@ -49,12 +49,18 @@ public class MueblesAdapter extends RecyclerView.Adapter<MueblesAdapter.ViewHold
         holder.textViewMueblePrecio.setText(Float.toString(mueble.getPrecio()));
         holder.checkBoxMuebleCheck.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b){
+                reservaDetailsViewModel.getComentarioAlojamiento().add(
+                        holder.textViewMuebleName.getText().toString()
+                );
                 reservaDetailsViewModel.getFloatPrecioTotalMutableLiveData().setValue(
                         reservaDetailsViewModel.getFloatPrecioTotalMutableLiveData().
                                 getValue() + mueble.getPrecio()
                 );
 
             }else {
+                reservaDetailsViewModel.getComentarioAlojamiento().remove(
+                        holder.textViewMuebleName.getText().toString()
+                );
                 reservaDetailsViewModel.getFloatPrecioTotalMutableLiveData().setValue(
                         reservaDetailsViewModel.getFloatPrecioTotalMutableLiveData().
                                 getValue() - mueble.getPrecio()

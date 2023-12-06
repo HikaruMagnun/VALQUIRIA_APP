@@ -31,7 +31,7 @@ public class ActivityApp extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_reserva_fecha, R.id.navigation_notifications)
+                R.id.navigation_home, R.id.navigation_alojamiento_validator, R.id.navigation_servicio_validator)
                 .build();
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_app);
 

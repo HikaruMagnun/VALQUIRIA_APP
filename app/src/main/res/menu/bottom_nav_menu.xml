@@ -7,12 +7,12 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_reserva_fecha"
+        android:id="@+id/navigation_alojamiento_validator"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_reserva" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_servicio_validator"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/title_servicios" />
 
