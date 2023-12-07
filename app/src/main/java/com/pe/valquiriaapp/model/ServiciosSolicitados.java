@@ -6,14 +6,17 @@ public class ServiciosSolicitados {
     private Alojamiento alojamiento;
     private boolean estado;
 
+    private int cantidad;
+
     public ServiciosSolicitados() {
     }
 
-    public ServiciosSolicitados(int id, Servicio servicio, Alojamiento alojamiento, boolean estado) {
+    public ServiciosSolicitados(int id, Servicio servicio, Alojamiento alojamiento, boolean estado, int cantidad) {
         this.id = id;
         this.servicio = servicio;
         this.alojamiento = alojamiento;
         this.estado = estado;
+        this.cantidad = cantidad;
     }
 
     public int getId() {
@@ -46,5 +49,13 @@ public class ServiciosSolicitados {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 }

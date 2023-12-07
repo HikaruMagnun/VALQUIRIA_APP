@@ -3,7 +3,7 @@ package com.pe.valquiriaapp.model;
 import java.sql.Date;
 
 public class Alojamiento {
-    private int dni;
+    private int id;
     private Cliente cliente;
     private Habitacion habitacion;
     private Empleado empleado;
@@ -14,10 +14,12 @@ public class Alojamiento {
     private String comentario;
 
     public Alojamiento() {
+        cliente = new Cliente();
+        habitacion = new Habitacion();
     }
 
-    public Alojamiento(int dni, Cliente cliente, Habitacion habitacion, Empleado empleado, Date fechaRealizadoAlojamiento, Date fechaAlojamiento, Date fechaAlojamientoVencimiento, String estadoReserva, String comentario) {
-        this.dni = dni;
+    public Alojamiento(int id, Cliente cliente, Habitacion habitacion, Empleado empleado, Date fechaRealizadoAlojamiento, Date fechaAlojamiento, Date fechaAlojamientoVencimiento, String estadoReserva, String comentario) {
+        this.id = id;
         this.cliente = cliente;
         this.habitacion = habitacion;
         this.empleado = empleado;
@@ -26,14 +28,15 @@ public class Alojamiento {
         this.fechaAlojamientoVencimiento = fechaAlojamientoVencimiento;
         this.estadoReserva = estadoReserva;
         this.comentario = comentario;
+
     }
 
-    public int getDni() {
-        return dni;
+    public int getId() {
+        return id;
     }
 
-    public void setDni(int dni) {
-        this.dni = dni;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Cliente getCliente() {

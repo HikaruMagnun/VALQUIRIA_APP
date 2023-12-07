@@ -4,12 +4,14 @@ public class Servicio {
     private int id;
     private String descripcion;
     private float precio;
-    private String tipoServicio;
-    private String imagen;
+    private ServicioTipo tipoServicio;
+    private String[] imagen;
 
-    public Servicio() {}
+    public Servicio() {
+        tipoServicio = new ServicioTipo();
+    }
 
-    public Servicio(int id, String descripcion, float precio, String tipoServicio, String imagen) {
+    public Servicio(int id, String descripcion, float precio, ServicioTipo tipoServicio, String[] imagen) {
         this.id = id;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -41,19 +43,19 @@ public class Servicio {
         this.precio = precio;
     }
 
-    public String getTipoServicio() {
+    public ServicioTipo getTipoServicio() {
         return tipoServicio;
     }
 
-    public void setTipoServicio(String tipoServicio) {
+    public void setTipoServicio(ServicioTipo tipoServicio) {
         this.tipoServicio = tipoServicio;
     }
 
-    public String getImagen() {
+    public String[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(String[] imagen) {
         this.imagen = imagen;
     }
 }

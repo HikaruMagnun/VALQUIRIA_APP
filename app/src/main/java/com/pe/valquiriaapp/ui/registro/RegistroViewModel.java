@@ -15,8 +15,8 @@ public class RegistroViewModel extends ViewModel {
     private Cliente cliente;
     private MutableLiveData<Boolean> mutableLiveDataConfirmar = new MutableLiveData<>();
 
-    public void pasarUsuario(int dni, String nombre, String apellido, String correo, String contrasena){
-        cliente = new Cliente(dni,nombre,apellido,correo,contrasena);
+    public void pasarUsuario(int dni, String nombre, String apellido, String correo, String contrasena,int numero, String dirreccion){
+        cliente = new Cliente(dni,nombre,apellido,correo,contrasena,numero,dirreccion);
         Executor executor = Executors.newSingleThreadExecutor();
         executor.execute(new Runnable() {
             @Override

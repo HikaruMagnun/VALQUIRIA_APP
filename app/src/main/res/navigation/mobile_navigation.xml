@@ -23,10 +23,19 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.pe.valquiriaapp.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_servicio_validator"
+        android:name="com.pe.valquiriaapp.ui.alojamiento_validator.ServicioValidatorFragment"
         android:label="@string/title_servicios"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_servicios_validator" >
+        <action
+            android:id="@+id/action_navigation_notifications_to_servicioTiposFragment"
+            app:destination="@id/servicioTiposFragment" />
+        <action
+            android:id="@+id/action_navigation_servicio_validator_to_servicioNoReserva"
+            app:destination="@id/servicioNoReserva"
+            app:popUpTo="@id/navigation_servicio_validator"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_reserva_habitacion"
         android:name="com.pe.valquiriaapp.ui.reserva_habitacion.ReservaHabitacionFragment"
@@ -40,10 +49,10 @@
             app:argType="long" />
         <action
             android:id="@+id/action_navigation_reserva_habitacion_to_reservaDetailsFragment"
-            app:destination="@id/navigation_reserva_details" />
+            app:destination="@id/reserva_details" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_reserva_details"
+        android:id="@+id/reserva_details"
         android:name="com.pe.valquiriaapp.ui.reserva_details.ReservaDetailsFragment"
         android:label="fragment_reserva_details"
         tools:layout="@layout/fragment_reserva_details" >
@@ -59,15 +68,79 @@
         <argument android:name="cod_habitacion"
             app:argType="integer" />
         <action
-            android:id="@+id/action_navigation_reserva_details_to_habitacionFragment"
-            app:destination="@id/habitacionFragment" />
-        <action
-            android:id="@+id/action_navigation_reserva_details_to_navigation_reserva_fecha"
-            app:destination="@id/navigation_reserva_fecha" />
+            android:id="@+id/action_reserva_details_to_navigation_alojamiento_validator"
+            app:destination="@id/navigation_alojamiento_validator"
+            app:popUpTo="@id/reserva_details"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/habitacionFragment"
         android:name="com.pe.valquiriaapp.ui.habitacion.HabitacionFragment"
         android:label="fragment_habitacion"
-        tools:layout="@layout/fragment_habitacion" />
+        tools:layout="@layout/fragment_habitacion" >
+        <action
+            android:id="@+id/action_habitacionFragment_to_navigation_servicio_validator"
+            app:destination="@id/navigation_servicio_validator" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_alojamiento_validator"
+        android:name="com.pe.valquiriaapp.ui.alojamiento_validator.AlojamientoValidatorFragment"
+        android:label="fragment_alojamiento_validator"
+        tools:layout="@layout/fragment_alojamiento_validator" >
+        <action
+            android:id="@+id/action_alojamiento_validator_to_navigation_reserva_fecha"
+            app:destination="@id/navigation_reserva_fecha"
+            app:popUpTo="@id/navigation_alojamiento_validator"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_alojamiento_validator_to_habitacionFragment"
+            app:destination="@id/habitacionFragment"
+            app:popUpTo="@id/navigation_alojamiento_validator"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigation_alojamiento_validator_to_habitacionEsperaFragment"
+            app:destination="@id/habitacionEsperaFragment"
+            app:popUpTo="@id/navigation_alojamiento_validator"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/servicioTiposFragment"
+        android:name="com.pe.valquiriaapp.ui.servicios_tipos.ServicioTiposFragment"
+        android:label="fragment_servicio_tipos"
+        tools:layout="@layout/fragment_servicio_tipos" >
+        <action
+            android:id="@+id/action_servicioTiposFragment_to_serviciosPorTipoFragment"
+            app:destination="@id/serviciosPorTipoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviciosPorTipoFragment"
+        android:name="com.pe.valquiriaapp.ui.servicios_por_tipo.ServiciosPorTipoFragment"
+        android:label="fragment_servicios_por_tipo"
+        tools:layout="@layout/fragment_servicios_por_tipo" >
+        <action
+            android:id="@+id/action_serviciosPorTipoFragment_to_servicioDetailsFragment"
+            app:destination="@id/servicioDetailsFragment" />
+        <argument
+            android:name="TipoServicio"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/servicioDetailsFragment"
+        android:name="com.pe.valquiriaapp.ui.servicio_details.ServicioDetailsFragment"
+        android:label="fragment_servicio_details"
+        tools:layout="@layout/fragment_servicio_details" />
+    <fragment
+        android:id="@+id/habitacionEsperaFragment"
+        android:name="com.pe.valquiriaapp.ui.habitacion_espera.HabitacionEsperaFragment"
+        android:label="fragment_habitacion_espera"
+        tools:layout="@layout/fragment_habitacion_espera" />
+    <fragment
+        android:id="@+id/servicioNoReserva"
+        android:name="com.pe.valquiriaapp.ui.servicio_no_reserva.ServicioNoReserva"
+        android:label="fragment_servicio_no_reserva"
+        tools:layout="@layout/fragment_servicio_no_reserva" >
+        <action
+            android:id="@+id/action_servicioNoReserva_to_navigation_alojamiento_validator"
+            app:destination="@id/navigation_alojamiento_validator" />
+    </fragment>
 </navigation>

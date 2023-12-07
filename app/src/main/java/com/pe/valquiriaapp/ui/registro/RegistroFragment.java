@@ -40,6 +40,8 @@ public class RegistroFragment extends Fragment {
         EditText editTextCorreo = view.findViewById(R.id.registro_correo);
         EditText editTextDni = view.findViewById(R.id.registro_dni);
         EditText editTextContrasena = view.findViewById(R.id.registro_contrasena);
+        EditText editTextTelefono = view.findViewById(R.id.registro_telefono);
+        EditText editTextDireccion = view.findViewById(R.id.registro_direccion);
         Button buttonRegistrar = view.findViewById(R.id.registro_button);
         TextView textViewLogin = view.findViewById(R.id.registro_login);
         registroViewModel = new ViewModelProvider(this).get(RegistroViewModel.class);
@@ -52,16 +54,21 @@ public class RegistroFragment extends Fragment {
                 String correo = editTextCorreo.getText().toString();
                 String dni = editTextDni.getText().toString();
                 String contrasena = editTextContrasena.getText().toString();
-
-                if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || dni.isEmpty() || contrasena.isEmpty()) {
+                String telefono = editTextTelefono.getText().toString();
+                String dirreccion = editTextDireccion.getText().toString();
+                if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || dni.isEmpty() || contrasena.isEmpty()
+                || telefono.isEmpty() || dirreccion.isEmpty()) {
                     Toast.makeText(view.getContext(), "Rellene los formularios", Toast.LENGTH_SHORT).show();
                     return;
                 }else if (dni.length() != 8 ){
                     Toast.makeText(view.getContext(), "Introdusca un dni valido", Toast.LENGTH_SHORT).show();
                     return;
+                } else if (telefono.length() != 9) {
+                    Toast.makeText(getContext(), "Numero telefonico no valido", Toast.LENGTH_SHORT).show();
                 }
                 int dniNumber = Integer.parseInt(dni);
-                registroViewModel.pasarUsuario(dniNumber,nombre,apellido,correo,contrasena);
+                registroViewModel.pasarUsuario(dniNumber,nombre,apellido,correo,contrasena,
+                        Integer.parseInt(telefono),dirreccion);
             }
         });
 
