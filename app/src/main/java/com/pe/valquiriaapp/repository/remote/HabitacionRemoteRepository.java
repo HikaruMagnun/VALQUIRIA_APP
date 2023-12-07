@@ -30,8 +30,7 @@ public class HabitacionRemoteRepository {
                 habitacion.setPiso(resultSet.getInt("piso"));
                 habitacion.setPrecioDia(resultSet.getFloat("precio_dia"));
                 habitacion.setTipo(resultSet.getString("tipo"));
-                Array imagenes = resultSet.getArray("imagenes");
-                habitacion.setImagenes((String[]) imagenes.getArray());
+                habitacion.setImagenes((String[]) resultSet.getArray("imagenes").getArray());
                 habitacion.setDescripcion(resultSet.getString("description"));
                 listaProducto.add(habitacion);
             }
@@ -54,8 +53,7 @@ public class HabitacionRemoteRepository {
                 habitacion.setPiso(resultSet.getInt("piso"));
                 habitacion.setPrecioDia(resultSet.getFloat("precio_dia"));
                 habitacion.setTipo(resultSet.getString("tipo"));
-                Array imagenes = resultSet.getArray("imagenes");
-                habitacion.setImagenes((String[]) imagenes.getArray());
+                habitacion.setImagenes((String[]) resultSet.getArray("imagenes").getArray());
                 habitacion.setDescripcion(resultSet.getString("description"));
             }
         }catch (SQLException e){

@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.pe.valquiriaapp.R;
@@ -39,17 +41,14 @@ public class ServicioValidatorFragment extends Fragment {
                 //1=sin alojamientp
                 //2=alojamiento pendiente  PENDIENTE
                 //3= actualmente alojado   ALOJADO
-                case 1 :{
-                    //NavDirections navDirections = AlojamientoValidatorFragmentDirections.actionAlojamientoValidatorToNavigationReservaFecha();
-                    //Navigation.findNavController(view).navigate(navDirections);
-                    break;
-                } case 2:{
-                    //NavDirections navDirections = AlojamientoValidatorFragmentDirections.actionNavigationAlojamientoValidatorToHabitacionEsperaFragment();
-                    //.findNavController(view).navigate(navDirections);
+                case 1 :
+                case 2:{
+                    NavDirections navDirections = ServicioValidatorFragmentDirections.actionNavigationServicioValidatorToServicioNoReserva();
+                    Navigation.findNavController(view).navigate(navDirections);
                     break;
                 }case 3:{
-                    //NavDirections navDirections = AlojamientoValidatorFragmentDirections.actionAlojamientoValidatorToHabitacionFragment();
-                    //Navigation.findNavController(view).navigate(navDirections);
+                    NavDirections navDirections = ServicioValidatorFragmentDirections.actionNavigationNotificationsToServicioTiposFragment();
+                    Navigation.findNavController(view).navigate(navDirections);
                     break;
                 }
             }

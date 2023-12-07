@@ -25,14 +25,13 @@ public class ServicioDetailsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_servicio_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_servicio_details, container, false);
+
+
+
+        return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ServicioDetailsViewModel.class);
-        // TODO: Use the ViewModel
-    }
+
 
 }

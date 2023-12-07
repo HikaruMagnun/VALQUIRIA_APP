@@ -61,8 +61,7 @@ public class ClienteRemoteRepository {
             cliente.setApellido(resultSet.getString("apellido"));
             cliente.setCorreo(resultSet.getString("correo"));
             cliente.setNumeroTelefonico(resultSet.getInt("numero_telefono"));
-            cliente.setDirreccion(resultSet.getString("dirrecion"));
-            System.out.println(cliente);
+            cliente.setDirreccion(resultSet.getString("direccion"));
             return cliente;
         } catch (SQLException e) {
             e.printStackTrace();

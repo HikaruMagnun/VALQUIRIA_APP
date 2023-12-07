@@ -33,6 +33,11 @@ public class ValidatorAlojamientoServicioViewModel extends AndroidViewModel {
     public void validarAlojamiento() {
         Executor executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             if (alojamientoLocalRepository.existeInformacionAlojamiento()) {
                 alojamientoLocalRepository.borrarDatosAlojamiento();
             }

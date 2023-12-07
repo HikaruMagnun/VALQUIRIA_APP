@@ -48,6 +48,7 @@ dependencies {
     implementation (libs.androidx.datastore.preferences)
     implementation(libs.androidx.datastore.preferences.rxjava3)
     implementation (libs.gson)
+    implementation (libs.circleimageview)
     annotationProcessor (libs.glide.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
