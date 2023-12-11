@@ -15,5 +15,10 @@
         android:id="@+id/navigation_servicio_validator"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/title_servicios" />
+    <item
+        android:id="@+id/navigation_info_reserva"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_info_reserva" />
+
 
 </menu>

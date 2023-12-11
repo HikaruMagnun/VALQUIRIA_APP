@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.servicio_no_reserva.ServicioNoReserva">
+
+    <ImageView
+        android:id="@+id/info_no_reserva_img"
+        android:layout_width="250dp"
+        android:layout_height="321dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="300dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="monospace"
+        android:text="NO SE ENCONTRO UNA RESERVA A SU NOMBRE"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_no_reserva_img" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/info_no_reserva_button"
+        android:layout_width="280dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="8dp"
+        android:text="CONSULTE O RESERVE AQUI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+</androidx.constraintlayout.widget.ConstraintLayout>

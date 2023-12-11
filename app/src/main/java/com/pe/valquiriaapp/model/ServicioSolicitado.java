@@ -10,6 +10,7 @@ public class ServicioSolicitado {
 
     public ServicioSolicitado() {
         this.servicio = new Servicio();
+        this.alojamiento = new Alojamiento();
     }
 
     public ServicioSolicitado(int id, Servicio servicio, Alojamiento alojamiento, boolean estado, int cantidad) {
@@ -44,7 +45,7 @@ public class ServicioSolicitado {
         this.alojamiento = alojamiento;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 

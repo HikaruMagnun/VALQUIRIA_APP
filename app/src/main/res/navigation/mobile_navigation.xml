@@ -152,4 +152,33 @@
             android:id="@+id/action_servicioNoReserva_to_navigation_alojamiento_validator"
             app:destination="@id/navigation_alojamiento_validator" />
     </fragment>
+    <fragment
+        android:id="@+id/infoNoReserva"
+        android:name="com.pe.valquiriaapp.ui.info_no_reserva.InfoNoReserva"
+        android:label="fragment_info_no_reserva" >
+        <action
+            android:id="@+id/action_infoNoReserva_to_navigation_alojamiento_validator"
+            app:destination="@id/navigation_alojamiento_validator" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_info_reserva"
+        android:name="com.pe.valquiriaapp.ui.alojamiento_validator.InfoValidatorFragment"
+        android:label="fragment_info_validator"
+        tools:layout="@layout/fragment_info_validator" >
+        <action
+            android:id="@+id/action_infoValidatorFragment_to_infoNoReserva"
+            app:destination="@id/infoNoReserva"
+            app:popUpTo="@id/navigation_info_reserva"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_infoValidatorFragment_to_infoReservaFragment"
+            app:destination="@id/infoReservaFragment"
+            app:popUpTo="@id/navigation_info_reserva"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoReservaFragment"
+        android:name="com.pe.valquiriaapp.ui.info_reserva.InfoReservaFragment"
+        android:label="fragment_info_reserva"
+        tools:layout="@layout/fragment_info_reserva" />
 </navigation>

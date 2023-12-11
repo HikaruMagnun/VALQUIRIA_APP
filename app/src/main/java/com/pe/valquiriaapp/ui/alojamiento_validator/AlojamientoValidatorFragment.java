@@ -20,7 +20,7 @@ import com.pe.valquiriaapp.R;
 
 public class AlojamientoValidatorFragment extends Fragment {
 
-    private ValidatorAlojamientoServicioViewModel mViewModel;
+    private ValidatorAlojamientoInfoServicioViewModel mViewModel;
 
     public static AlojamientoValidatorFragment newInstance() {
         return new AlojamientoValidatorFragment();
@@ -31,7 +31,7 @@ public class AlojamientoValidatorFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_alojamiento_validator, container, false);
         ImageView imageViewImg = view.findViewById(R.id.alojamiento_validator_img);
-        ValidatorAlojamientoServicioViewModel validatorAlojamientoServicioViewModel = new ViewModelProvider(this).get(ValidatorAlojamientoServicioViewModel.class);
+        ValidatorAlojamientoInfoServicioViewModel validatorAlojamientoServicioViewModel = new ViewModelProvider(this).get(ValidatorAlojamientoInfoServicioViewModel.class);
 
         Glide.with(view.getContext()).load(R.drawable.hotel_standby)
                 .into(imageViewImg);
@@ -61,6 +61,7 @@ public class AlojamientoValidatorFragment extends Fragment {
 
         return view;
     }
+
 
 
 }

@@ -102,7 +102,7 @@ public class ReservaDetailsFragment extends Fragment {
                 if(reservaDetailsMaterialSwitchPersonalizacionConfirm.isChecked()){
                     comentario = mViewModel.getComentarioAlojamiento().toString();
                 }else {
-                    comentario = "SIN NADA AÑADIDO";
+                    comentario = "NO SE AÑADIO LA PERSONALIZACION";
                 }
                 mViewModel.pasarDatosAlojamiento(
                     codHabitacion,
