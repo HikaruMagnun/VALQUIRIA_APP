@@ -1,13 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.habitacion_espera.HabitacionEsperaFragment">
+    tools:context=".ui.habitacion_espera.HabitacionEsperaFragment" >
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/habitacion_espera_lay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/habitacion_espera_gif"
+            android:layout_width="296dp"
+            android:layout_height="284dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="112dp" />
+
+        <TextView
+            android:id="@+id/habitacion_espera_text"
+            android:layout_width="277dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="36dp"
+            android:fontFamily="monospace"
+            android:text="SU VISITA ESTA AGENDADA PARA EL :"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/habitacion_espera_fecha"
+            android:layout_width="277dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="monospace"
+            android:text="11-1111-111 hasta\n 11-11-1111"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/habitacion_espera_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="204dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="260dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

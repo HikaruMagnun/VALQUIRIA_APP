@@ -8,7 +8,6 @@
     tools:context=".ui.servicios_por_tipo.ServiciosPorTipoFragment">
 
     <TextView
-        android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SELECCIONE EL SERVICIO QUE REQUIERA"
@@ -21,16 +20,18 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_servicio_por_tipo_recycler"
         android:layout_width="match_parent"
-        android:layout_height="545dp"
-        android:layout_marginHorizontal="20dp"
+        android:layout_height="516dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginTop="30dp"
         android:visibility="visible"
-        android:padding="10dp"
-        tools:listitem="@layout/item_servicio_por_tipo"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_servicio_por_tipo" />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/fragment_servicio_por_tipo_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

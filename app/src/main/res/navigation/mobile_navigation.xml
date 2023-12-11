@@ -128,7 +128,16 @@
         android:id="@+id/servicioDetailsFragment"
         android:name="com.pe.valquiriaapp.ui.servicio_details.ServicioDetailsFragment"
         android:label="fragment_servicio_details"
-        tools:layout="@layout/fragment_servicio_details" />
+        tools:layout="@layout/fragment_servicio_details" >
+        <argument
+            android:name="id_servicio"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_servicioDetailsFragment_to_servicioTiposFragment2"
+            app:destination="@id/servicioTiposFragment"
+            app:popUpTo="@id/servicioDetailsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/habitacionEsperaFragment"
         android:name="com.pe.valquiriaapp.ui.habitacion_espera.HabitacionEsperaFragment"
