@@ -64,7 +64,7 @@ public class AlojamientoRemoteRepository {
                 alojamiento.setFechaAlojamiento(resultSet.getDate("fecha_alojamiento"));
                 alojamiento.setFechaAlojamientoVencimiento(resultSet.getDate("fecha_alojamiento_vencimiento"));
                 alojamiento.setEstadoReserva(resultSet.getString("estado_reserva"));
-
+                alojamiento.setComentario(resultSet.getString("comentario"));
                 return alojamiento;
             }else {
              return null;

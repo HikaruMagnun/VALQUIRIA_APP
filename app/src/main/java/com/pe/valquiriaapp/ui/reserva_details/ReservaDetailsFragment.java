@@ -27,7 +27,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.pe.valquiriaapp.R;
-import com.pe.valquiriaapp.adapters.HabitacionDetailsAdapter;
+import com.pe.valquiriaapp.adapters.ImagenesCarouselAdapter;
 import com.pe.valquiriaapp.adapters.TipoMuebleAdapter;
 import com.pe.valquiriaapp.model.Habitacion;
 import com.pe.valquiriaapp.model.MueblesTipo;
@@ -102,7 +102,7 @@ public class ReservaDetailsFragment extends Fragment {
                 if(reservaDetailsMaterialSwitchPersonalizacionConfirm.isChecked()){
                     comentario = mViewModel.getComentarioAlojamiento().toString();
                 }else {
-                    comentario = "SIN NADA AÑADIDO";
+                    comentario = "NO SE AÑADIO LA PERSONALIZACION";
                 }
                 mViewModel.pasarDatosAlojamiento(
                     codHabitacion,
@@ -175,8 +175,8 @@ public class ReservaDetailsFragment extends Fragment {
         mViewModel.getHabitacionMutableLiveData().observe(getViewLifecycleOwner(), new Observer<Habitacion>() {
             @Override
             public void onChanged(Habitacion habitacion) {
-                HabitacionDetailsAdapter habitacionDetailsAdapter = new HabitacionDetailsAdapter(Arrays.asList(habitacion.getImagenes()));
-                reservaDetailsRecyclerView.setAdapter(habitacionDetailsAdapter);
+                ImagenesCarouselAdapter imagenesCarouselAdapter = new ImagenesCarouselAdapter(Arrays.asList(habitacion.getImagenes()));
+                reservaDetailsRecyclerView.setAdapter(imagenesCarouselAdapter);
                 reservaDetailsTipo.setText(habitacion.getTipo());
                 reservaDetailsDescription.setText(habitacion.getDescripcion());
                 reservaDetailsPiso.setText(String.valueOf(habitacion.getPiso()));

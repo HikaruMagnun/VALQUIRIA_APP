@@ -55,7 +55,7 @@ public class Servicio {
         return imagen;
     }
 
-    public void setImagen(String[] imagen) {
+    public void setImagenes(String[] imagen) {
         this.imagen = imagen;
     }
 }

@@ -16,23 +16,23 @@ import androidx.navigation.Navigation;
 import com.bumptech.glide.Glide;
 import com.pe.valquiriaapp.R;
 
-public class ServicioValidatorFragment extends Fragment {
+public  class InfoValidatorFragment extends Fragment {
 
     private ValidatorAlojamientoInfoServicioViewModel mViewModel;
 
-    public static ServicioValidatorFragment newInstance() {
-        return new ServicioValidatorFragment();
+    public static InfoValidatorFragment newInstance() {
+        return new InfoValidatorFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_servicios_validator, container, false);
-        ImageView imageViewImg = view.findViewById(R.id.servicio_validator_img);
+        View view = inflater.inflate(R.layout.fragment_info_validator, container, false);
+        ImageView imageViewImg = view.findViewById(R.id.info_validator_img);
         ValidatorAlojamientoInfoServicioViewModel validatorAlojamientoServicioViewModel = new ViewModelProvider(this).get(ValidatorAlojamientoInfoServicioViewModel.class);
 
-        Glide.with(view.getContext()).load("https://cdn-segurosfalabella.azureedge.net/web/gifs/images/01.gif")
-               .into(imageViewImg);
+        Glide.with(view.getContext()).load(R.drawable.hotel_standby)
+                .into(imageViewImg);
         validatorAlojamientoServicioViewModel.validarAlojamiento();
 
         validatorAlojamientoServicioViewModel.integerMutableLiveData.observe(getViewLifecycleOwner(), integer -> {
@@ -41,13 +41,14 @@ public class ServicioValidatorFragment extends Fragment {
                 //1=sin alojamientp
                 //2=alojamiento pendiente  PENDIENTE
                 //3= actualmente alojado   ALOJADO
-                case 1 :
-                case 2:{
-                    NavDirections navDirections = ServicioValidatorFragmentDirections.actionNavigationServicioValidatorToServicioNoReserva();
+                case 1 :{
+                    NavDirections navDirections = InfoValidatorFragmentDirections.actionInfoValidatorFragmentToInfoNoReserva();
                     Navigation.findNavController(view).navigate(navDirections);
                     break;
-                }case 3:{
-                    NavDirections navDirections = ServicioValidatorFragmentDirections.actionNavigationNotificationsToServicioTiposFragment();
+                } case 2:
+                    case 3:
+                {
+                    NavDirections navDirections = InfoValidatorFragmentDirections.actionInfoValidatorFragmentToInfoReservaFragment();
                     Navigation.findNavController(view).navigate(navDirections);
                     break;
                 }
@@ -56,6 +57,7 @@ public class ServicioValidatorFragment extends Fragment {
 
         return view;
     }
+
 
 
 }

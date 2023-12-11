@@ -1,6 +1,6 @@
 package com.pe.valquiriaapp.model;
 
-public class ServiciosSolicitados {
+public class ServicioSolicitado {
     private int id;
     private Servicio servicio;
     private Alojamiento alojamiento;
@@ -8,10 +8,12 @@ public class ServiciosSolicitados {
 
     private int cantidad;
 
-    public ServiciosSolicitados() {
+    public ServicioSolicitado() {
+        this.servicio = new Servicio();
+        this.alojamiento = new Alojamiento();
     }
 
-    public ServiciosSolicitados(int id, Servicio servicio, Alojamiento alojamiento, boolean estado, int cantidad) {
+    public ServicioSolicitado(int id, Servicio servicio, Alojamiento alojamiento, boolean estado, int cantidad) {
         this.id = id;
         this.servicio = servicio;
         this.alojamiento = alojamiento;
@@ -43,7 +45,7 @@ public class ServiciosSolicitados {
         this.alojamiento = alojamiento;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 

@@ -9,7 +9,7 @@
     app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">
 
     <ImageView
-        android:id="@+id/item_details_carousel_img"
+        android:id="@+id/item__carousel_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"

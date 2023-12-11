@@ -14,7 +14,7 @@ import com.pe.valquiriaapp.repository.remote.AlojamientoRemoteRepository;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class ValidatorAlojamientoServicioViewModel extends AndroidViewModel {
+public class ValidatorAlojamientoInfoServicioViewModel extends AndroidViewModel {
 
     AlojamientoLocalRepository alojamientoLocalRepository;
     ClienteLocalRepository clienteLocalRepository;
@@ -24,7 +24,7 @@ public class ValidatorAlojamientoServicioViewModel extends AndroidViewModel {
     //3= actualmente alojado   ALOJADO
     MutableLiveData<Integer> integerMutableLiveData = new MutableLiveData<>(0);
 
-    public ValidatorAlojamientoServicioViewModel(@NonNull Application application) {
+    public ValidatorAlojamientoInfoServicioViewModel(@NonNull Application application) {
         super(application);
         alojamientoLocalRepository = new AlojamientoLocalRepository(application);
         clienteLocalRepository = new ClienteLocalRepository(application);

@@ -13,19 +13,19 @@ import com.pe.valquiriaapp.R;
 
 import java.util.List;
 
-public class HabitacionDetailsAdapter extends RecyclerView.Adapter<HabitacionDetailsAdapter.ViewHolder> {
+public class ImagenesCarouselAdapter extends RecyclerView.Adapter<ImagenesCarouselAdapter.ViewHolder> {
 
     private final List<String> stringList;
 
 
 
-    public HabitacionDetailsAdapter(List<String> stringList){
+    public ImagenesCarouselAdapter(List<String> stringList){
         this.stringList = stringList;
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_habitacion_details_carrusel,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_imagenes_carrusel,parent,false);
         return new ViewHolder(view);
     }
 
@@ -44,7 +44,7 @@ public class HabitacionDetailsAdapter extends RecyclerView.Adapter<HabitacionDet
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageViewCarrousel = itemView.findViewById(R.id.item_details_carousel_img);
+            imageViewCarrousel = itemView.findViewById(R.id.item__carousel_img);
         }
     }
 }
