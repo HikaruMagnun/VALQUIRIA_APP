@@ -33,26 +33,25 @@ public class HabitacionEsperaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_habitacion_espera, container, false);
         ImageView imageViewgif = view.findViewById(R.id.habitacion_espera_gif);
         Glide.with(view.getContext()).load(R.drawable.wait).into(imageViewgif);
-        /*
-        //mViewModel = new ViewModelProvider(this).get(HabitacionEsperaViewModel.class);
-        CircularProgressIndicator circularProgressIndicator = view.findViewById(R.id.habitacion_espera_progressBar);
 
+        // Inicializa el ViewModel
+        mViewModel = new ViewModelProvider(this).get(HabitacionEsperaViewModel.class);
+
+        //CircularProgressIndicator circularProgressIndicator = view.findViewById(R.id.habitacion_espera_progressBar);
         TextView textViewFecha = view.findViewById(R.id.habitacion_espera_fecha);
         LinearLayout linearLayout = view.findViewById(R.id.habitacion_espera_lay);
-        circularProgressIndicator.setVisibility(View.GONE);
-        linearLayout.setVisibility(View.VISIBLE);
 
-/*
+        // Muestra el indicador de progreso mientras se cargan los datos
+        //circularProgressIndicator.setVisibility(View.VISIBLE);
+        linearLayout.setVisibility(View.GONE);
+
+        // Solicita datos y observa los cambios
         mViewModel.solicitarDatos();
-        mViewModel.getStringMutableLiveData().observe(getViewLifecycleOwner(),s -> {
-            //Glide.with(view.getContext()).load(R.drawable.wait).into(imageViewgif);
+        mViewModel.getStringMutableLiveData().observe(getViewLifecycleOwner(), s -> {
             textViewFecha.setText(s);
-            circularProgressIndicator.setVisibility(View.GONE);
+            //circularProgressIndicator.setVisibility(View.GONE);
             linearLayout.setVisibility(View.VISIBLE);
         });
-
-*/
-
 
         return view;
     }

@@ -54,9 +54,9 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-
-    configurations.implementation{
-        exclude(group = "org.jetbrains.kotlin", module = "kotlin-stdlib-jdk8")
+    configurations.all {
+        resolutionStrategy {
+            exclude(group = "org.jetbrains.kotlin", module = "kotlin-stdlib-jdk8")
+        }
     }
-
 }

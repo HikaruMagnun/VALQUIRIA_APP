@@ -12,9 +12,9 @@ public class Conexion {
             return connection;
         }
 
-        String url = "jdbc:postgresql://db.swgwmakcrwpgjfeiysse.supabase.co:5432/postgres";
-        String usuario = "postgres";
-        String contrasena = "BB8IBRjM33aELU8g";
+        String url = "jdbc:postgresql://aws-0-us-east-2.pooler.supabase.com:6543/postgres";
+        String usuario = "postgres.gnlapnjiwuwwvisqcmao";
+        String contrasena = "YZ4Ohv9QaX6U58ZB";
 
         try {
             Class.forName("org.postgresql.Driver");
