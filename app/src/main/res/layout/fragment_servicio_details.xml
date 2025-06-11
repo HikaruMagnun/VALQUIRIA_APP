@@ -1,193 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/habitacion_fondp"
     tools:context=".ui.servicio_details.ServicioDetailsFragment">
+
+    <View
+        android:id="@+id/backgroundOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AA000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/servicio_details_contrint"
         android:layout_width="match_parent"
-        android:layout_height="512dp">
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/reserva_details_cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/servicio_details_img"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="266dp"
-                android:layout_marginVertical="15dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:orientation="horizontal"
-                app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
-                tools:ignore="SpeakableTextPresentCheck" />
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp">
 
-            <TextView
-                android:id="@+id/servicio_details_description"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/servicio_details_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aleo_bold"
+                        android:padding="16dp"
+                        android:text="NOMBRE DEL SERVICIO"
+                        android:textAlignment="center"
+                        android:textColor="@color/blue_oscuro"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/servicio_details_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="230dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:text="DESCRIPCION DEL SERVICIO"
-                android:textAlignment="center"
-                android:textSize="30sp" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp">
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
-                <TextView
-                    android:layout_width="81dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:lines="2"
-                    android:text="PRECIO UNITARIO"
-                    android:textAlignment="textStart"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:text=":"
-                    android:textAlignment="center"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aleo_bold"
+                        android:text="Precio y Cantidad"
+                        android:textColor="@color/blue_oscuro"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="5dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:text="S/."
-                    android:textAlignment="textEnd"
-                    android:textSize="24sp" />
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@color/blue_oscuro" />
 
-                <TextView
-                    android:id="@+id/servicio_details_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:text="000.00"
-                    android:textSize="24sp" />
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abeezee"
+                            android:text="PRECIO UNITARIO:"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/servicio_details_button_less"
-                    style="@style/Widget.Material3.Button.IconButton.Filled"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    app:icon="@drawable/menos"
-                    app:iconGravity="textStart"
-                    app:iconSize="30dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/abeezee"
+                            android:text="S/."
+                            android:textColor="#4CAF50"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/servicio_details_cantidad"
-                    android:layout_width="43dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:text="1"
-                    android:textAlignment="center"
-                    tools:ignore="TouchTargetSizeCheck" />
+                        <TextView
+                            android:id="@+id/servicio_details_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/abeezee"
+                            android:text="000.00"
+                            android:textColor="#4CAF50"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/servicio_details_button_plus"
-                    style="@style/Widget.Material3.Button.IconButton.Filled"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    app:icon="@drawable/mas"
-                    app:iconGravity="textStart"
-                    app:iconSize="30dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center">
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/abeezee"
+                            android:text="CANTIDAD:"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/servicio_details_button_less"
+                            style="@style/Widget.Material3.Button.IconButton.Filled"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            app:backgroundTint="@color/blue_oscuro"
+                            app:icon="@drawable/menos"
+                            app:iconGravity="textStart"
+                            app:iconSize="30dp"
+                            app:iconTint="@color/white"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                        <EditText
+                            android:id="@+id/servicio_details_cantidad"
+                            android:layout_width="60dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:ems="10"
+                            android:fontFamily="@font/aleo_bold"
+                            android:inputType="number"
+                            android:text="1"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/servicio_details_button_plus"
+                            style="@style/Widget.Material3.Button.IconButton.Filled"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            app:backgroundTint="@color/blue_oscuro"
+                            app:icon="@drawable/mas"
+                            app:iconGravity="textStart"
+                            app:iconSize="30dp"
+                            app:iconTint="@color/white"
+                            tools:ignore="SpeakableTextPresentCheck" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/reserva_details_cardView"
-        android:layout_width="411dp"
-        android:layout_height="142dp"
-        app:cardBackgroundColor="#eaeaee"
-        app:contentPaddingTop="15dp">
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/blue_oscuro"
+        app:cardElevation="16dp"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="15dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:gravity="center_horizontal"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="15dp"
+                    android:fontFamily="@font/aleo_bold"
+                    android:text="TOTAL:"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/aleo_bold"
+                    android:paddingRight="4dp"
                     android:text="S/."
-                    android:textSize="35sp" />
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/servicio_details_precio_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Precio_total"
-                    android:textSize="35sp" />
-
-
+                    android:fontFamily="@font/aleo_bold"
+                    android:text="000.00"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/servicio_details_confirmar"
-                style="@android:style/Widget.Material.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_weight="1"
-                android:text="CONFIRMAR PEDIDO" />
-
-
+                android:layout_marginHorizontal="16dp"
+                android:backgroundTint="#4CAF50"
+                android:fontFamily="@font/aleo_bold"
+                android:text="CONFIRMAR PEDIDO"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -195,15 +276,14 @@
         android:id="@+id/servicio_details_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="200dp"
         android:indeterminate="true"
         android:visibility="gone"
-        app:indicatorSize="300dp"
-        app:trackThickness="30dp" />
+        app:indicatorColor="@color/white"
+        app:indicatorSize="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:trackThickness="10dp" />
 
-
-</LinearLayout>
-
-
-
+</androidx.constraintlayout.widget.ConstraintLayout>
