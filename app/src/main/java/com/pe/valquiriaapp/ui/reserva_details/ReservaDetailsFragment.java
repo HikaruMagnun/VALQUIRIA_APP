@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.widget.NestedScrollView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +51,7 @@ public class ReservaDetailsFragment extends Fragment {
     private TextView reservaDetailsPrecioDia;
     private ProgressBar reservaDetailsLoading;
     private CollapsingToolbarLayout collapsingToolbarLayout;
-    private LinearLayout reservaDetailsLayout;
+    private NestedScrollView reservaDetailsLayout;
     private CardView reservaDetailsCardView;
     private TextView reservaDetailsPrecioTotal;
     private MaterialSwitch reservaDetailsMaterialSwitchPersonalizacionConfirm;

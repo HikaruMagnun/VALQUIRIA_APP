@@ -3,26 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:strokeWidth="0dp">
+    android:layout_marginVertical="4dp"
+    android:layout_marginHorizontal="4dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="1dp"
+    app:strokeColor="#E0E0E0"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/mueble_img"
-            android:layout_width="69dp"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
-
-            android:background="@drawable/borde" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:background="#F5F5F5"
+            android:padding="4dp"
+            android:scaleType="centerInside" />
 
         <LinearLayout
-            android:layout_width="157dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -30,42 +37,46 @@
                 android:id="@+id/mueble_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="13dp"
-                android:gravity="start"
-                android:text="Name"
-                android:textSize="20sp" />
+                android:fontFamily="@font/abeezee"
+                android:text="Nombre del mueble"
+                android:textColor="#232121"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView13"
-                    android:layout_width="37dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center|start"
+                    android:fontFamily="@font/abeezee"
                     android:text="S/."
-                    android:textSize="16sp" />
+                    android:textColor="#4CAF50"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/mueble_precio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
+                    android:layout_marginStart="2dp"
+                    android:fontFamily="@font/abeezee"
                     android:text="00.00"
-                    android:textSize="16sp" />
+                    android:textColor="#4CAF50"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
             </LinearLayout>
-
         </LinearLayout>
 
-        <CheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/mueble_check_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1" />
+            android:layout_gravity="center_vertical"
+            app:buttonTint="@color/blue_oscuro" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
