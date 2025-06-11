@@ -1,41 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/habitacion_fondp"
     tools:context=".ui.reserva_habitacion.ReservaHabitacionFragment">
 
-    <TextView
-        android:id="@+id/textView5"
+    <View
+        android:id="@+id/backgroundOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AA000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/titleCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="10dp"
-        android:text="SELECCIONE LA HABITACION DISPONIBLE"
-        android:textAlignment="center"
-        android:textColor="@color/blue_oscuro"
-        android:textColorHighlight="@color/blue_oscuro"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/blue_oscuro"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/aleo_bold"
+            android:padding="16dp"
+            android:text="SELECCIONE LA HABITACIÓN DISPONIBLE"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reserva_habitacion_lista_habitacion"
         android:layout_width="match_parent"
-        android:layout_height="556dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:clipToPadding="false"
+        android:padding="8dp"
         android:visibility="visible"
-        tools:visibility="gone">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleCard"
+        tools:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/reserva_habitacion_loading"
         style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="100dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
