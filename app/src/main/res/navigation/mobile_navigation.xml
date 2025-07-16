@@ -72,6 +72,9 @@
             app:destination="@id/navigation_alojamiento_validator"
             app:popUpTo="@id/reserva_details"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_reserva_details_to_billingFragment"
+            app:destination="@id/billingFragment" />
     </fragment>
     <fragment
         android:id="@+id/habitacionFragment"
@@ -137,6 +140,9 @@
             app:destination="@id/servicioTiposFragment"
             app:popUpTo="@id/servicioDetailsFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_servicioDetailsFragment_to_billingFragment"
+            app:destination="@id/billingFragment" />
     </fragment>
     <fragment
         android:id="@+id/habitacionEsperaFragment"
@@ -181,4 +187,28 @@
         android:name="com.pe.valquiriaapp.ui.info_reserva.InfoReservaFragment"
         android:label="fragment_info_reserva"
         tools:layout="@layout/fragment_info_reserva" />
+
+    <!-- Nuevo fragmento de billing -->
+    <fragment
+        android:id="@+id/billingFragment"
+        android:name="com.pe.valquiriaapp.ui.billing.BillingFragment"
+        android:label="fragment_billing"
+        tools:layout="@layout/fragment_billing" >
+        <argument
+            android:name="fromFragment"
+            app:argType="string" />
+        <argument
+            android:name="totalAmount"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_billingFragment_to_navigation_alojamiento_validator"
+            app:destination="@id/navigation_alojamiento_validator"
+            app:popUpTo="@id/billingFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_billingFragment_to_servicioTiposFragment"
+            app:destination="@id/servicioTiposFragment"
+            app:popUpTo="@id/billingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

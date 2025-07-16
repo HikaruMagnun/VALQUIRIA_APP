@@ -104,8 +104,10 @@ public class ServicioDetailsFragment extends Fragment {
 
         mViewModel.getBooleanMutableLiveData().observe(getViewLifecycleOwner(),aBoolean -> {
             if (aBoolean){
-                Toast.makeText(view.getContext(), "GRACIAS POR SU COMPRA", Toast.LENGTH_SHORT).show();
-                NavDirections navDirections = ServicioDetailsFragmentDirections.actionServicioDetailsFragmentToServicioTiposFragment2();
+                // Navegar a billing en lugar de directamente a servicios
+                float totalAmount = Float.parseFloat(textViewPrecioTotal.getText().toString());
+                NavDirections navDirections = ServicioDetailsFragmentDirections
+                        .actionServicioDetailsFragmentToBillingFragment("servicio", totalAmount);
                 Navigation.findNavController(view).navigate(navDirections);
             }else{
                 Toast.makeText(view.getContext(), "ERROR, COMUNIQUESE CON NOSOTROS SI EL ERROR PERSISTE", Toast.LENGTH_SHORT).show();

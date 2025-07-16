@@ -164,10 +164,13 @@ public class ReservaDetailsFragment extends Fragment {
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean) {
-                    NavDirections navDirections = ReservaDetailsFragmentDirections.actionReservaDetailsToNavigationAlojamientoValidator();
+                    // Navegar a billing en lugar de directamente al validador
+                    float totalAmount = mViewModel.getFloatPrecioTotalMutableLiveData().getValue();
+                    NavDirections navDirections = ReservaDetailsFragmentDirections
+                            .actionReservaDetailsToBillingFragment("reserva", totalAmount);
                     Navigation.findNavController(view).navigate(navDirections);
                 }else{
-                    Toast.makeText(getContext(), "RESERVA FALLIFA, POR FAVOR INTENTELO DENUEVO", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "RESERVA FALLIDA, POR FAVOR INTENTELO DENUEVO", Toast.LENGTH_LONG).show();
                     NavDirections navDirections = ReservaDetailsFragmentDirections.actionReservaDetailsToNavigationAlojamientoValidator();
                     Navigation.findNavController(view).navigate(navDirections);
                 }
